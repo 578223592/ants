@@ -52,7 +52,7 @@ type poolCommon struct {
 	// cond for waiting to get an idle worker.
 	cond *sync.Cond
 
-	// done is used to indicate that all workers are done.
+	// done is used to indicate that all workers are done. 关闭池子时用于通知所有的woker都完成了当前的工作
 	allDone chan struct{}
 	// once is used to make sure the pool is closed just once.
 	once *sync.Once
