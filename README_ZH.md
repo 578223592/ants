@@ -22,10 +22,11 @@
 
 - 自动调度海量的 goroutines，复用 goroutines
 - 定期清理过期的 goroutines，进一步节省资源
-- 提供了大量有用的接口：任务提交、获取运行中的 goroutine 数量、动态调整 Pool 大小、释放 Pool、重启 Pool
+- 提供了大量实用的接口：任务提交、获取运行中的 goroutine 数量、动态调整 Pool 大小、释放 Pool、重启 Pool 等
 - 优雅处理 panic，防止程序崩溃
-- 资源复用，极大节省内存使用量；在大规模批量并发任务场景下比原生 goroutine 并发具有[更高的性能](#-性能小结)
+- 资源复用，极大节省内存使用量；在大规模批量并发任务场景下甚至可能比原生 goroutine 并发具有***更高的性能***
 - 非阻塞机制
+- 预分配内存 (环形队列，可选)
 
 ## 💡 `ants` 是如何运行的
 
@@ -323,7 +324,7 @@ pool.Reboot()
   <tbody>
     <tr>
       <td align="center" valign="middle">
-        <a href="https://www.tencent.com">
+        <a href="https://www.tencent.com/">
           <img src="https://res.strikefreedom.top/static_res/logos/tencent_logo.png" width="250" />
         </a>
       </td>
@@ -368,56 +369,68 @@ pool.Reboot()
     <tr>
       <td align="center" valign="middle">
         <a href="https://www.baidu.com/" target="_blank">
-          <img src="https://res.strikefreedom.top/static_res/logos/baidu-mobile.png" width="250" />
+          <img src="https://res.strikefreedom.top/static_res/logos/baidu-mobile-logo.png" width="250" />
         </a>
       </td>
       <td align="center" valign="middle">
-        <a href="https://www.360.com" target="_blank">
+        <a href="https://www.360.com/" target="_blank">
           <img src="https://res.strikefreedom.top/static_res/logos/360-logo.png" width="250" />
         </a>
       </td>
       <td align="center" valign="middle">
-        <a href="https://www.huaweicloud.com" target="_blank">
+        <a href="https://www.huaweicloud.com/" target="_blank">
           <img src="https://res-static.hc-cdn.cn/cloudbu-site/china/zh-cn/wangxue/header/logo.svg" width="250" />
         </a>
       </td>
       <td align="center" valign="middle">
-        <a href="https://matrixorigin.cn" target="_blank">
+        <a href="https://matrixorigin.cn/" target="_blank">
           <img src="https://matrixorigin.cn/_next/static/media/logo-light-zh.a2a8f3c0.svg" width="250" />
         </a>
       </td>
     </tr>
     <tr>
       <td align="center" valign="middle">
-        <a href="https://adguard-dns.io" target="_blank">
+        <a href="https://adguard-dns.io/" target="_blank">
           <img src="https://cdn.adtidy.org/website/images/AdGuardDNS_black.svg" width="250" />
         </a>
       </td>
       <td align="center" valign="middle">
-        <a href="https://bk.tencent.com" target="_blank">
+        <a href="https://bk.tencent.com/" target="_blank">
           <img src="https://static.apiseven.com/2022/11/14/6371adab14119.png" width="250" />
         </a>
       </td>
       <td align="center" valign="middle">
-        <a href="https://cn.aliyun.com" target="_blank">
-          <img src="https://res.strikefreedom.top/static_res/logos/aliyun-cn.png" width="250" />
+        <a href="https://cn.aliyun.com/" target="_blank">
+          <img src="https://res.strikefreedom.top/static_res/logos/aliyun-cn-logo.png" width="250" />
         </a>
       </td>
       <td align="center" valign="middle">
-        <a href="https://www.zuoyebang.com" target="_blank">
+        <a href="https://www.zuoyebang.com/" target="_blank">
           <img src="https://res.strikefreedom.top/static_res/logos/zuoyebang-logo.jpeg" width="300" />
         </a>
       </td>
     </tr>
     <tr>
       <td align="center" valign="middle">
-        <a href="https://www.antgroup.com" target="_blank">
-          <img src="https://gw.alipayobjects.com/mdn/rms_27e257/afts/img/A*PLZaSZnCPAwAAAAAAAAAAAAAARQnAQ" width="250" />
+        <a href="https://www.antgroup.com/" target="_blank">
+          <img src="https://res.strikefreedom.top/static_res/logos/ant-group-logo.png" width="250" />
+        </a>
+      </td>
+      <td align="center" valign="middle">
+        <a href="https://zilliz.com/" target="_blank">
+          <img src="https://res.strikefreedom.top/static_res/logos/zilliz-logo.png" width="250" />
+        </a>
+      </td>
+      <td align="center" valign="middle">
+        <a href="https://amap.com/" target="_blank">
+          <img src="https://res.strikefreedom.top/static_res/logos/amap-logo.png" width="250" />
         </a>
       </td>
     </tr>
   </tbody>
 </table>
+
+如果你也正在生产环境上使用 `ants`，欢迎提 PR 来丰富这份列表。
 
 ### 开源软件
 
@@ -456,7 +469,7 @@ pool.Reboot()
 
 `ants` 项目一直以来都是在 JetBrains 公司旗下的 GoLand 集成开发环境中进行开发，基于 **free JetBrains Open Source license(s)** 正版免费授权，在此表达我的谢意。
 
-<a href="https://www.jetbrains.com/?from=ants" target="_blank"><img src="https://raw.githubusercontent.com/panjf2000/illustrations/master/jetbrains/jetbrains-variant-4.png" width="250" align="middle"/></a>
+<a href="https://www.jetbrains.com/?from=ants" target="_blank"><img src="https://resources.jetbrains.com/storage/products/company/brand/logos/jetbrains.svg" alt="JetBrains logo."></a>
 
 ## 💰 支持
 
@@ -477,50 +490,6 @@ pool.Reboot()
 <img src="https://raw.githubusercontent.com/panjf2000/illustrations/master/payments/WeChatPay.JPG" width="250" align="middle"/>&nbsp;&nbsp;
 <img src="https://raw.githubusercontent.com/panjf2000/illustrations/master/payments/AliPay.JPG" width="250" align="middle"/>&nbsp;&nbsp;
 <a href="https://www.paypal.me/R136a1X" target="_blank"><img src="https://raw.githubusercontent.com/panjf2000/illustrations/master/payments/PayPal.JPG" width="250" align="middle"/></a>&nbsp;&nbsp;
-
-## 资助者
-
-<table>
-  <tbody>
-    <tr>
-      <td align="center" valign="middle">
-        <a target="_blank" href="https://github.com/patrick-othmer">
-          <img src="https://avatars1.githubusercontent.com/u/8964313" width="100" alt="Patrick Othmer" />
-        </a>
-      </td>
-      <td align="center" valign="middle">
-        <a target="_blank" href="https://github.com/panjf2000/ants">
-          <img src="https://avatars2.githubusercontent.com/u/50285334" width="100" alt="Jimmy" />
-        </a>
-      </td>
-      <td align="center" valign="middle">
-        <a target="_blank" href="https://github.com/cafra">
-          <img src="https://avatars0.githubusercontent.com/u/13758306" width="100" alt="ChenZhen" />
-        </a>
-      </td>
-      <td align="center" valign="middle">
-        <a target="_blank" href="https://github.com/yangwenmai">
-          <img src="https://avatars0.githubusercontent.com/u/1710912" width="100" alt="Mai Yang" />
-        </a>
-      </td>
-      <td align="center" valign="middle">
-        <a target="_blank" href="https://github.com/BeijingWks">
-          <img src="https://avatars3.githubusercontent.com/u/33656339" width="100" alt="王开帅" />
-        </a>
-      </td>
-      <td align="center" valign="middle">
-        <a target="_blank" href="https://github.com/refs">
-          <img src="https://avatars3.githubusercontent.com/u/6905948" width="100" alt="Unger Alejandro" />
-        </a>
-      </td>
-      <td align="center" valign="middle">
-        <a target="_blank" href="https://github.com/Wuvist">
-          <img src="https://avatars.githubusercontent.com/u/657796" width="100" alt="Weng Wei" />
-        </a>
-      </td>
-    </tr>
-  </tbody>
-</table>
 
 ## 🔋 赞助商
 

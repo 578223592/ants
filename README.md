@@ -22,10 +22,11 @@ Library `ants` implements a goroutine pool with fixed capacity, managing and rec
 
 - Managing and recycling a massive number of goroutines automatically
 - Purging overdue goroutines periodically
-- Abundant APIs: submitting tasks, getting the number of running goroutines, tuning the capacity of the pool dynamically, releasing the pool, rebooting the pool
+- Abundant APIs: submitting tasks, getting the number of running goroutines, tuning the capacity of the pool dynamically, releasing the pool, rebooting the pool, etc.
 - Handle panic gracefully to prevent programs from crash
-- Efficient in memory usage and it even achieves [higher performance](#-performance-summary) than unlimited goroutines in Golang
+- Efficient in memory usage and it may even achieve ***higher performance*** than unlimited goroutines in Golang
 - Nonblocking mechanism
+- Preallocated memory (ring buffer, optional)
 
 ## 💡 How `ants` works
 
@@ -314,20 +315,20 @@ The source code in `ants` is available under the [MIT License](/LICENSE).
 
 ## 🖥 Use cases
 
-### business companies
+### business corporations
 
-The following companies/organizations use `ants` in production.
+Trusted by the following corporations/organizations.
 
 <table>
   <tbody>
     <tr>
       <td align="center" valign="middle">
-        <a href="https://www.tencent.com">
+        <a href="https://www.tencent.com/">
           <img src="https://res.strikefreedom.top/static_res/logos/tencent_logo.png" width="250" />
         </a>
       </td>
       <td align="center" valign="middle">
-        <a href="https://www.bytedance.com/" target="_blank">
+        <a href="https://www.bytedance.com/en/" target="_blank">
           <img src="https://res.strikefreedom.top/static_res/logos/ByteDance_Logo.png" width="250" />
         </a>
       </td>
@@ -344,12 +345,12 @@ The following companies/organizations use `ants` in production.
     </tr>
     <tr>
       <td align="center" valign="middle">
-        <a href="https://www.tencentmusic.com/" target="_blank">
+        <a href="https://www.tencentmusic.com/en-us/" target="_blank">
           <img src="https://res.strikefreedom.top/static_res/logos/tencent-music-logo.png" width="250" />
         </a>
       </td>
       <td align="center" valign="middle">
-        <a href="https://www.futuhk.com/" target="_blank">
+        <a href="https://www.futuhk.com/en/" target="_blank">
           <img src="https://res.strikefreedom.top/static_res/logos/futu-logo.png" width="250" />
         </a>
       </td>
@@ -367,11 +368,11 @@ The following companies/organizations use `ants` in production.
     <tr>
       <td align="center" valign="middle">
         <a href="https://www.baidu.com/" target="_blank">
-          <img src="https://res.strikefreedom.top/static_res/logos/baidu-mobile.png" width="250" />
+          <img src="https://res.strikefreedom.top/static_res/logos/baidu-mobile-logo.png" width="250" />
         </a>
       </td>
       <td align="center" valign="middle">
-        <a href="https://www.360.com" target="_blank">
+        <a href="https://www.360.com/" target="_blank">
           <img src="https://res.strikefreedom.top/static_res/logos/360-logo.png" width="250" />
         </a>
       </td>
@@ -381,42 +382,55 @@ The following companies/organizations use `ants` in production.
         </a>
       </td>
       <td align="center" valign="middle">
-        <a href="https://www.matrixorigin.io" target="_blank">
+        <a href="https://www.matrixorigin.io/" target="_blank">
           <img src="https://www.matrixorigin.io/_next/static/media/logo-light-en.42553c69.svg" width="250" />
         </a>
       </td>
     </tr>
     <tr>
       <td align="center" valign="middle">
-        <a href="https://adguard-dns.io" target="_blank">
+        <a href="https://adguard-dns.io/" target="_blank">
           <img src="https://cdn.adtidy.org/website/images/AdGuardDNS_black.svg" width="250" />
         </a>
       </td>
       <td align="center" valign="middle">
-        <a href="https://bk.tencent.com" target="_blank">
+        <a href="https://bk.tencent.com/" target="_blank">
           <img src="https://static.apiseven.com/2022/11/14/6371adab14119.png" width="250" />
         </a>
       </td>
       <td align="center" valign="middle">
-        <a href="https://www.alibabacloud.com" target="_blank">
-          <img src="https://res.strikefreedom.top/static_res/logos/aliyun-intl.png" width="250" />
+        <a href="https://www.alibabacloud.com/" target="_blank">
+          <img src="https://res.strikefreedom.top/static_res/logos/aliyun-intl-logo.png" width="250" />
         </a>
       </td>
       <td align="center" valign="middle">
-        <a href="https://www.zuoyebang.com" target="_blank">
+        <a href="https://www.zuoyebang.com/" target="_blank">
           <img src="https://res.strikefreedom.top/static_res/logos/zuoyebang-logo.jpeg" width="300" />
         </a>
       </td>
     </tr>
     <tr>
       <td align="center" valign="middle">
-        <a href="https://www.antgroup.com/en" target="_blank">
-          <img src="https://gw.alipayobjects.com/mdn/rms_27e257/afts/img/A*PLZaSZnCPAwAAAAAAAAAAAAAARQnAQ" width="250" />
+        <a href="https://www.antgroup.com/en/" target="_blank">
+          <img src="https://res.strikefreedom.top/static_res/logos/ant-group-logo.png" width="250" />
+        </a>
+      </td>
+      <td align="center" valign="middle">
+        <a href="https://zilliz.com/" target="_blank">
+          <img src="https://res.strikefreedom.top/static_res/logos/zilliz-logo.png" width="250" />
+        </a>
+      </td>
+      </td>
+      <td align="center" valign="middle">
+        <a href="https://amap.com/" target="_blank">
+          <img src="https://res.strikefreedom.top/static_res/logos/amap-logo.png" width="250" />
         </a>
       </td>
     </tr>
   </tbody>
 </table>
+
+If you're also using `ants` in production, please help us enrich this list by opening a pull request.
 
 ### open-source software
 
@@ -453,9 +467,9 @@ If you have `ants` integrated into projects, feel free to open a pull request re
 
 ## 🔋 JetBrains OS licenses
 
-`ants` had been being developed with GoLand under the **free JetBrains Open Source license(s)** granted by JetBrains s.r.o., hence I would like to express my thanks here.
+`ants` has been being developed with GoLand under the **free JetBrains Open Source license(s)** granted by JetBrains s.r.o., hence I would like to express my thanks here.
 
-<a href="https://www.jetbrains.com/?from=ants" target="_blank"><img src="https://raw.githubusercontent.com/panjf2000/illustrations/master/jetbrains/jetbrains-variant-4.png" width="250" align="middle"/></a>
+<a href="https://www.jetbrains.com/?from=ants" target="_blank"><img src="https://resources.jetbrains.com/storage/products/company/brand/logos/jetbrains.svg" alt="JetBrains logo."></a>
 
 ## 💰 Backers
 
@@ -476,50 +490,6 @@ Become a bronze sponsor with a monthly donation of $10 and get your logo on our 
 <img src="https://raw.githubusercontent.com/panjf2000/illustrations/master/payments/WeChatPay.JPG" width="250" align="middle"/>&nbsp;&nbsp;
 <img src="https://raw.githubusercontent.com/panjf2000/illustrations/master/payments/AliPay.JPG" width="250" align="middle"/>&nbsp;&nbsp;
 <a href="https://www.paypal.me/R136a1X" target="_blank"><img src="https://raw.githubusercontent.com/panjf2000/illustrations/master/payments/PayPal.JPG" width="250" align="middle"/></a>&nbsp;&nbsp;
-
-## 💵 Patrons
-
-<table>
-  <tbody>
-    <tr>
-      <td align="center" valign="middle">
-        <a target="_blank" href="https://github.com/patrick-othmer">
-          <img src="https://avatars1.githubusercontent.com/u/8964313" width="100" alt="Patrick Othmer" />
-        </a>
-      </td>
-      <td align="center" valign="middle">
-        <a target="_blank" href="https://github.com/panjf2000/ants">
-          <img src="https://avatars2.githubusercontent.com/u/50285334" width="100" alt="Jimmy" />
-        </a>
-      </td>
-      <td align="center" valign="middle">
-        <a target="_blank" href="https://github.com/cafra">
-          <img src="https://avatars0.githubusercontent.com/u/13758306" width="100" alt="ChenZhen" />
-        </a>
-      </td>
-      <td align="center" valign="middle">
-        <a target="_blank" href="https://github.com/yangwenmai">
-          <img src="https://avatars0.githubusercontent.com/u/1710912" width="100" alt="Mai Yang" />
-        </a>
-      </td>
-      <td align="center" valign="middle">
-        <a target="_blank" href="https://github.com/BeijingWks">
-          <img src="https://avatars3.githubusercontent.com/u/33656339" width="100" alt="王开帅" />
-        </a>
-      </td>
-      <td align="center" valign="middle">
-        <a target="_blank" href="https://github.com/refs">
-          <img src="https://avatars3.githubusercontent.com/u/6905948" width="100" alt="Unger Alejandro" />
-        </a>
-      </td>
-      <td align="center" valign="middle">
-        <a target="_blank" href="https://github.com/Wuvist">
-          <img src="https://avatars.githubusercontent.com/u/657796" width="100" alt="Weng Wei" />
-        </a>
-      </td>
-    </tr>
-  </tbody>
-</table>
 
 ## 🔋 Sponsorship
 
